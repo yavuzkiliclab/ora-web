@@ -12,6 +12,7 @@
 <meta name="author" content="Yıldırım Yavuz Kılıç">
 <title>Ora Clinic Istanbul · Dental Excellence on the Meridian of Two Continents</title>
 <meta name="description" content="Full-journey dental care in Istanbul: implants, veneers and complete smile design with airport pickup, hotel and interpreter. Precision planned, personally delivered.">
+<link rel="icon" type="image/png" href="assets/img/ora-mark-dark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -54,6 +55,24 @@ header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--porce
 .wordmark span{color:var(--copper)}
 .wordsub{font-size:10px;letter-spacing:.42em;text-transform:uppercase;color:var(--marine-soft);
          margin-top:2px;font-weight:500}
+.brand-logo{height:44px;width:auto;display:block}
+@media(max-width:640px){.brand-logo{height:36px}}
+.brand{display:inline-flex;flex-direction:column;gap:3px;line-height:1}
+.brand-sub{font-size:10px;letter-spacing:.32em;text-transform:uppercase;
+           color:var(--marine-soft);padding-left:2px}
+@media(max-width:640px){.brand-sub{display:none}}
+/* --- marka filigrani --- */
+.wm{position:relative;overflow:hidden}
+.wm > .wrap{position:relative;z-index:1}
+.wm::before{content:"";position:absolute;z-index:0;pointer-events:none;
+  top:50%;transform:translateY(-50%);width:420px;height:420px;
+  background:no-repeat center/contain;opacity:.06}
+#journey.wm::before{right:40px;left:auto;background-image:url(assets/img/ora-mark-dark.png)}
+#faq.wm::before{left:40px;right:auto;background-image:url(assets/img/ora-mark-dark.png)}
+#trust.wm::before{right:40px;left:auto;background-image:url(assets/img/ora-mark-dark.png)}
+#contact.wm::before{left:40px;right:auto;background-image:url(assets/img/ora-mark-light.png);opacity:.08}
+@media(max-width:900px){.wm::before{width:300px;height:300px;opacity:.05}}
+@media(max-width:640px){.wm::before{display:none}}
 nav.main{display:flex;gap:34px}
 nav.main a{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;
            color:var(--marine-soft);transition:color .25s;position:relative;padding:4px 0}
@@ -194,6 +213,10 @@ html.js-on .reveal.in{opacity:1;transform:none}
 .hero::after{content:"";position:absolute;inset:0;z-index:1;
   background:linear-gradient(180deg,rgba(14,31,46,.72) 0%,rgba(14,31,46,.55) 45%,rgba(14,31,46,.78) 100%)}
 .hero .wrap{position:relative;z-index:2}
+.hero::before{content:"";position:absolute;z-index:2;pointer-events:none;
+  right:4vw;top:50%;transform:translateY(-50%);width:500px;height:500px;
+  background:url(assets/img/ora-mark-light.png) no-repeat center/contain;
+  opacity:.12}
 .hero-grid{z-index:1;opacity:.25}
 .hero .coord.dim{color:rgba(251,250,247,.6)}
 .hero .btn.ghost{border:1.5px solid rgba(251,250,247,.4);color:var(--porcelain)}
@@ -322,9 +345,9 @@ html.js-on .reveal.in{opacity:1;transform:none}
 
 <header>
   <div class="wrap hbar">
-    <a href="#" aria-label="Ora Clinic home">
-      <div class="wordmark">ORA<span>.</span></div>
-      <div class="wordsub">Clinic · Istanbul</div>
+    <a href="#" aria-label="Ora Clinic home" class="brand">
+      <img src="assets/img/ora-logo-header.png" alt="Ora Clinic" class="brand-logo">
+      <span class="brand-sub">Dental Clinic · Istanbul</span>
     </a>
     <nav class="main" aria-label="Primary">
       <a href="#work">Disciplines</a>
@@ -417,7 +440,7 @@ html.js-on .reveal.in{opacity:1;transform:none}
   </div>
 </section>
 
-<section id="journey">
+<section id="journey" class="wm">
   <div class="wrap">
     <figure class="reveal" style="margin:0 0 48px;position:relative;aspect-ratio:16/5;overflow:hidden;border-radius:3px">
       <img src="assets/img/ora-tedavi.jpg" alt="Hekim elleri, muayene aletleriyle hassas çalışma" width="1600" height="900" loading="lazy" style="width:100%;height:100%;object-fit:cover">
@@ -481,7 +504,7 @@ html.js-on .reveal.in{opacity:1;transform:none}
   </div>
 </section>
 
-<section id="faq">
+<section id="faq" class="wm">
   <div class="wrap">
     <figure class="reveal" style="margin:0 0 48px;position:relative;aspect-ratio:16/4;overflow:hidden;border-radius:3px">
       <img src="assets/img/ora-aligner.jpg" alt="Şeffaf ortodontik plak" width="1600" height="900" loading="lazy" style="width:100%;height:100%;object-fit:cover">
@@ -577,7 +600,7 @@ html.js-on .reveal.in{opacity:1;transform:none}
 </section>
 
 <!-- ==== SERTIFIKALAR & ONAYLAR ==== -->
-<section id="trust">
+<section id="trust" class="wm">
   <div class="wrap">
     <div class="sec-head left"><p class="coord dim reveal">/ Certifications and approvals</p>
       <h2 class="reveal">Accredited, approved,<br>accountable.</h2></div>
@@ -634,7 +657,7 @@ html.js-on .reveal.in{opacity:1;transform:none}
   </div>
 </section>
 
-<section id="contact">
+<section id="contact" class="wm">
   <div class="wrap">
     <span class="coord" style="color:var(--copper-soft)">41.09° N · 28.79° E · Istanbul</span>
     <h2 class="reveal" style="margin-top:22px">Your smile has <em>coordinates.</em></h2>
