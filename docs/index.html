@@ -1,0 +1,663 @@
+<!--
+  © 2026 Yıldırım Yavuz Kılıç. All rights reserved.
+  Ora Clinic International · Homepage · draft v0.1
+  Design & engineering: Y. Yavuz Kılıç
+  NOT: [TEYIT] etiketli her veri klinikten dogrulanmadan yayina cikmaz.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Yıldırım Yavuz Kılıç">
+<title>Ora Clinic Istanbul · Dental Excellence on the Meridian of Two Continents</title>
+<meta name="description" content="Full-journey dental care in Istanbul: implants, veneers and complete smile design with airport pickup, hotel and interpreter. Precision planned, personally delivered.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --marine:#12384F;        /* marin: artik VURGU/derinlik rengi, dominant degil */
+  --marine-soft:#4A6274;   /* ikincil metin */
+  --ink:#16323F;           /* ana metin: koyu ama marin degil, okunur */
+  --porcelain:#FBFCFD;     /* FERAH beyaz zemin (hafif mavi ton) */
+  --porcelain-deep:#EEF4F7;/* acik mavi panel zemini */
+  --sky:#7FB0C4;           /* acik klinik mavisi vurgu */
+  --sky-soft:#D5E6ED;      /* cok acik mavi */
+  --copper:#B85C38;        /* bakir vurgu: lux imza korunuyor */
+  --copper-soft:#C9825F;
+  --copper-ink:#8F441F;
+  --line:rgba(18,56,79,.12);
+  --line-strong:rgba(18,56,79,.26);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"Inter",system-ui,sans-serif;background:var(--porcelain);color:var(--ink);
+     font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+::selection{background:var(--copper);color:var(--porcelain)}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:"Archivo",sans-serif;font-weight:640;line-height:1.04;letter-spacing:-.015em}
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
+
+/* mikro etiket: koordinat dili */
+.coord{font-family:"Archivo",sans-serif;font-stretch:110%;font-weight:500;font-size:11.5px;
+       letter-spacing:.32em;text-transform:uppercase;color:var(--copper-ink)}
+.coord.dim{color:var(--marine-soft)}
+
+/* ================= HEADER ================= */
+header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--porcelain) 88%,transparent);
+       backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.hbar{display:flex;align-items:center;justify-content:space-between;height:74px}
+.wordmark{font-family:"Archivo",sans-serif;font-stretch:125%;font-weight:760;font-size:26px;
+          letter-spacing:.06em;color:var(--marine)}
+.wordmark span{color:var(--copper)}
+.wordsub{font-size:10px;letter-spacing:.42em;text-transform:uppercase;color:var(--marine-soft);
+         margin-top:2px;font-weight:500}
+nav.main{display:flex;gap:34px}
+nav.main a{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;
+           color:var(--marine-soft);transition:color .25s;position:relative;padding:4px 0}
+nav.main a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1.5px;
+                  background:var(--copper);transition:width .3s}
+nav.main a:hover{color:var(--marine)}
+nav.main a:hover::after{width:100%}
+.hcta{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+      border:1.5px solid var(--marine);padding:11px 22px;border-radius:2px;transition:all .3s}
+.hcta:hover{background:var(--marine);color:var(--porcelain)}
+@media(max-width:900px){nav.main{display:none}}
+
+/* ================= HERO ================= */
+.hero{position:relative;padding:clamp(70px,11vh,130px) 0 clamp(60px,9vh,110px);overflow:hidden}
+.hero-grid{position:absolute;inset:0;pointer-events:none;opacity:.55;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),
+                   linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:88px 88px;
+  mask-image:radial-gradient(ellipse 90% 80% at 70% 10%,black 0%,transparent 68%)}
+.hero .coordline{display:flex;gap:26px;align-items:center;margin-bottom:34px}
+.hero .coordline .tick{width:44px;height:1px;background:var(--copper)}
+.hero h1{font-size:clamp(38px,6vw,86px);font-stretch:115%;max-width:24ch;color:#ffffff}
+.hero h1 em{font-style:normal;color:var(--copper)}
+.hero p.sub{max-width:52ch;margin-top:30px;font-size:clamp(16px,1.35vw,19px);color:var(--marine-soft)}
+.hero-ctas{display:flex;gap:16px;margin-top:42px;flex-wrap:wrap}
+.btn{font-family:"Archivo",sans-serif;font-size:13px;letter-spacing:.16em;text-transform:uppercase;
+     font-weight:600;padding:17px 30px;border-radius:2px;transition:all .3s;display:inline-block}
+.btn.solid{background:var(--marine);color:var(--porcelain);border:1.5px solid var(--marine)}
+.btn.solid:hover{background:var(--copper);border-color:var(--copper)}
+.btn.ghost{border:1.5px solid var(--line-strong);color:var(--marine)}
+.btn.ghost:hover{border-color:var(--copper);color:var(--copper)}
+.hero-meta{display:flex;gap:44px;margin-top:64px;flex-wrap:wrap}
+.hero-meta div{border-left:1.5px solid var(--copper);padding-left:16px}
+.hero-meta b{display:block;font-family:"Archivo",sans-serif;font-weight:640;font-size:15px;letter-spacing:.02em}
+.hero-meta span{font-size:12px;color:var(--marine-soft);letter-spacing:.06em}
+
+/* ================= TICKER ================= */
+.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+        overflow:hidden;padding:15px 0;background:var(--porcelain-deep)}
+.ticker-inner{display:flex;gap:56px;white-space:nowrap;animation:tick 34s linear infinite;width:max-content}
+.ticker-inner span{font-family:"Archivo",sans-serif;font-size:12px;letter-spacing:.3em;
+                   text-transform:uppercase;color:var(--marine-soft);font-weight:500}
+.ticker-inner span i{font-style:normal;color:var(--copper);margin-right:56px}
+@keyframes tick{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.ticker-inner{animation:none}}
+
+/* ================= SECTION BASICS ================= */
+section{padding:clamp(72px,10vh,130px) 0}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:24px;
+          margin-bottom:clamp(40px,6vh,70px);flex-wrap:wrap}
+.sec-head h2{font-size:clamp(32px,4.4vw,58px);font-stretch:112%}
+.sec-head .coord{white-space:nowrap}
+
+/* ================= DISCIPLINES (8) ================= */
+#work{background:var(--porcelain-deep);color:var(--ink)}
+#work .coord.dim{color:var(--marine-soft)}
+#work .sec-head h2{color:var(--ink)}
+.disc-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.disc{border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+      padding:30px 26px 36px;min-height:218px;display:flex;flex-direction:column;gap:14px;
+      transition:background .35s;position:relative}
+.disc:hover{background:var(--sky-soft)}
+.disc .no{font-family:"Archivo",sans-serif;font-weight:300;font-size:14px;color:var(--copper-soft);letter-spacing:.2em}
+.disc h3{font-size:19.5px;font-weight:600;font-stretch:108%;color:var(--ink)}
+.disc p{font-size:13.5px;color:var(--marine-soft);line-height:1.6;flex:1}
+.disc .go{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--copper-soft);
+          font-weight:600;opacity:0;transform:translateY(4px);transition:all .3s}
+.disc:hover .go{opacity:1;transform:none}
+@media(max-width:1020px){.disc-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.disc-grid{grid-template-columns:1fr}}
+
+/* ================= JOURNEY ================= */
+.journey{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:step;position:relative}
+.journey::before{content:"";position:absolute;top:26px;left:6%;right:6%;height:1px;
+                 background:repeating-linear-gradient(90deg,var(--line-strong) 0 10px,transparent 10px 20px)}
+.step{padding:0 26px;position:relative}
+.step .dot{width:52px;height:52px;border:1.5px solid var(--copper);border-radius:50%;
+           display:flex;align-items:center;justify-content:center;background:var(--porcelain);
+           font-family:"Archivo",sans-serif;font-weight:640;color:var(--copper);margin-bottom:22px;
+           position:relative;z-index:1}
+.step h3{font-size:19px;margin-bottom:10px;font-stretch:108%}
+.step p{font-size:13.5px;color:var(--marine-soft)}
+@media(max-width:900px){.journey{grid-template-columns:repeat(2,1fr);row-gap:44px}.journey::before{display:none}}
+@media(max-width:560px){.journey{grid-template-columns:1fr}}
+
+/* ================= PACKAGE BAND ================= */
+.band{background:var(--porcelain-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.band-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(40px,6vw,90px);align-items:center}
+.band h2{font-size:clamp(30px,3.8vw,50px);font-stretch:112%}
+.band h2 em{font-style:normal;color:var(--copper)}
+.band ul{list-style:none;margin-top:8px}
+.band li{padding:15px 0;border-bottom:1px solid var(--line);font-size:15px;display:flex;gap:14px;align-items:baseline}
+.band li b{font-family:"Archivo",sans-serif;font-weight:640;min-width:26px;color:var(--copper);font-size:13px}
+@media(max-width:900px){.band-inner{grid-template-columns:1fr}}
+
+/* ================= DOCTORS / TECH placeholders ================= */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{border:1px solid var(--line);background:#fff;border-radius:2px;overflow:hidden}
+.card .ph{aspect-ratio:4/4.6;background:var(--porcelain-deep);position:relative;
+   display:flex;align-items:center;justify-content:center}
+.card .ph::before{content:"+";position:absolute;top:14px;left:16px;color:var(--line-strong);font-family:"Archivo",sans-serif}
+.card .ph::after{content:"+";position:absolute;bottom:14px;right:16px;color:var(--line-strong);font-family:"Archivo",sans-serif}
+.card .ph span{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--marine-soft)}
+.card .cb{padding:20px 22px 24px}
+.card h3{font-size:17.5px;margin-bottom:4px}
+.card p{font-size:13px;color:var(--marine-soft)}
+@media(max-width:900px){.cards{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.cards{grid-template-columns:1fr}}
+
+/* ================= FAQ TEASER ================= */
+details{border-bottom:1px solid var(--line);padding:20px 0}
+summary{cursor:pointer;font-family:"Archivo",sans-serif;font-size:18px;font-weight:600;
+        list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--copper);font-weight:400;font-size:24px;transition:transform .3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin-top:12px;color:var(--marine-soft);max-width:70ch}
+
+/* ================= CTA / FOOTER ================= */
+#contact{background:var(--marine);color:var(--porcelain);text-align:center}
+#contact h2{font-size:clamp(34px,5vw,64px);font-stretch:115%;max-width:20ch;margin:0 auto}
+#contact h2 em{font-style:normal;color:var(--copper-soft)}
+#contact p{color:rgba(251,250,247,.7);margin:24px auto 40px;max-width:52ch}
+#contact .btn.solid{background:var(--copper);border-color:var(--copper)}
+#contact .btn.solid:hover{background:var(--porcelain);color:var(--ink);border-color:var(--porcelain)}
+footer{background:var(--marine);color:rgba(251,250,247,.6);border-top:1px solid rgba(251,250,247,.14);
+       padding:38px 0;font-size:12.5px}
+.fgrid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+footer a{border-bottom:1px solid transparent;transition:all .25s}
+footer a:hover{color:var(--porcelain);border-color:var(--copper)}
+html.js-on .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+html.js-on .reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){html.js-on .reveal{opacity:1;transform:none;transition:none}}
+
+/* hero background video */
+.hero{position:relative;overflow:hidden}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(14,31,46,.72) 0%,rgba(14,31,46,.55) 45%,rgba(14,31,46,.78) 100%)}
+.hero .wrap{position:relative;z-index:2}
+.hero-grid{z-index:1;opacity:.25}
+.hero .coord.dim{color:rgba(251,250,247,.6)}
+.hero .btn.ghost{border:1.5px solid rgba(251,250,247,.4);color:var(--porcelain)}
+.hero .btn.ghost:hover{border-color:var(--copper-soft);color:var(--copper-soft)}
+.hero-meta b{color:var(--porcelain)}
+.hero-meta span{color:rgba(251,250,247,.7)}
+.hero p.sub{color:rgba(251,250,247,.85)}
+.hero h1 em{color:var(--copper-soft)}
+@media(prefers-reduced-motion:reduce){
+  .hero-video{display:none}
+  .hero{background:url(assets/hero-istanbul-poster.jpg) center/cover}
+}
+
+
+/* ORA marka COK BASKIN */
+.hbar a[aria-label="Ora Clinic home"]{display:flex;flex-direction:column;gap:1px;text-decoration:none}
+.wordmark{font-family:"Archivo",sans-serif;font-weight:900;font-size:42px;letter-spacing:-.01em;
+  color:var(--marine);line-height:.92;font-stretch:125%}
+.wordmark span{color:var(--copper);font-size:46px}
+.wordsub{font-family:"Archivo",sans-serif;font-size:10px;letter-spacing:.42em;text-transform:uppercase;
+  color:var(--copper);font-weight:700;margin-top:2px}
+/* header'i biraz yukselt ki buyuk marka sigsin */
+.hbar{align-items:center}
+
+
+/* ===== YENI BOLUMLER ===== */
+/* placeholder ortak stil */
+.ph{background:repeating-linear-gradient(45deg,var(--porcelain-deep),var(--porcelain-deep) 10px,#e6eef2 10px,#e6eef2 20px);
+  border:1px dashed var(--line-strong);display:flex;align-items:center;justify-content:center;
+  color:var(--marine-soft);font-family:"Archivo",sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;text-align:center;border-radius:3px}
+
+/* marka logolari seridi */
+#brands{padding:64px 0;background:var(--porcelain)}
+.brand-row{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;margin-top:32px}
+.brand-chip{aspect-ratio:5/2;background:var(--porcelain-deep);border:1px solid var(--line);border-radius:4px;
+  display:flex;align-items:center;justify-content:center;padding:14px 18px}
+.brand-chip img{max-width:100%;max-height:38px;width:auto;height:auto;object-fit:contain;opacity:.62}
+
+/* paketler */
+#packages{padding:96px 0;background:var(--porcelain-deep)}
+.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px}
+.pkg-card{background:var(--porcelain);border:1px solid var(--line);border-radius:6px;padding:32px;display:flex;flex-direction:column}
+.pkg-card.featured{border:1.5px solid var(--copper);box-shadow:0 12px 40px rgba(18,56,79,.08)}
+.pkg-tag{font-family:"Archivo",sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);font-weight:700;margin-bottom:14px}
+.pkg-card h3{font-size:23px;font-weight:640;color:var(--ink);margin-bottom:8px;font-stretch:106%}
+.pkg-card .pkg-note{font-size:13px;color:var(--marine-soft);margin-bottom:20px}
+.pkg-card ul{list-style:none;margin:0 0 24px;padding:0;flex:1}
+.pkg-card li{font-size:14px;color:var(--ink);padding:9px 0;border-bottom:1px solid var(--line);display:flex;gap:10px}
+.pkg-card li::before{content:"+";color:var(--copper);font-weight:700}
+.pkg-price{font-size:12px;color:var(--marine-soft);font-style:italic;margin-bottom:16px}
+
+/* sertifikalar */
+#trust{padding:88px 0;background:var(--porcelain)}
+.cert-row{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px}
+.cert{aspect-ratio:1;background:var(--porcelain-deep);border:1px solid var(--line);border-radius:6px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:18px;text-align:center}
+.cert .cert-ic{width:46px;height:46px;border-radius:50%;border:2px solid var(--copper);display:flex;align-items:center;justify-content:center;color:var(--copper);font-size:20px}
+.cert b{font-size:13px;color:var(--ink);font-family:"Archivo",sans-serif;letter-spacing:.04em}
+.cert span{font-size:11px;color:var(--marine-soft)}
+
+/* oncesi sonrasi */
+#results{padding:96px 0;background:var(--porcelain-deep)}
+.ba-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px}
+.ba-card{background:var(--porcelain);border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+.ba-imgs{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.ba-imgs .ph{aspect-ratio:3/4;border-radius:0;border:none}
+.ba-card .ba-cap{padding:16px;font-size:13px;color:var(--marine-soft)}
+.ba-card .ba-cap b{color:var(--ink);display:block;font-family:"Archivo",sans-serif;font-size:14px;margin-bottom:3px}
+
+/* yorumlar */
+#reviews{padding:96px 0;background:var(--porcelain)}
+.rev-head{display:flex;gap:40px;align-items:center;margin-top:32px;flex-wrap:wrap}
+.rev-score{display:flex;flex-direction:column;gap:4px}
+.rev-score .num{font-family:"Archivo",sans-serif;font-size:44px;font-weight:800;color:var(--ink);line-height:1}
+.rev-score .stars{color:var(--copper);font-size:18px;letter-spacing:2px}
+.rev-score .src{font-size:12px;color:var(--marine-soft);letter-spacing:.08em}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px}
+.rev-card{background:var(--porcelain-deep);border:1px solid var(--line);border-radius:6px;padding:26px}
+.rev-card .stars{color:var(--copper);font-size:14px;letter-spacing:2px;margin-bottom:12px}
+.rev-card p{font-size:14px;color:var(--ink);line-height:1.65;margin-bottom:16px;font-style:italic}
+.rev-card .who{font-size:12px;color:var(--marine-soft);font-family:"Archivo",sans-serif;letter-spacing:.06em}
+
+/* saglik rehberi */
+#guide{padding:96px 0;background:var(--porcelain-deep)}
+.guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px}
+.guide-card{background:var(--porcelain);border:1px solid var(--line);border-radius:6px;overflow:hidden;display:flex;flex-direction:column}
+.guide-card .ph{aspect-ratio:16/9;border-radius:0;border:none;border-bottom:1px solid var(--line)}
+.guide-card img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;display:block}
+.guide-card .g-body{padding:22px;display:flex;flex-direction:column;flex:1}
+.guide-card .g-tag{font-family:"Archivo",sans-serif;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--copper);font-weight:700;margin-bottom:10px}
+.guide-card h3{font-size:17px;color:var(--ink);font-weight:620;line-height:1.35;margin-bottom:10px}
+.guide-card p{font-size:13px;color:var(--marine-soft);line-height:1.6;flex:1;margin-bottom:14px}
+.guide-card .g-link{font-family:"Archivo",sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--copper);font-weight:700}
+
+@media(max-width:900px){
+  .brand-row{grid-template-columns:repeat(3,1fr)}
+  .pkg-grid,.cert-row,.ba-grid,.rev-grid,.guide-grid{grid-template-columns:1fr}
+  .cert-row{grid-template-columns:repeat(2,1fr)}
+}
+
+
+/* team portre placeholder sik silüet */
+.card .ph{aspect-ratio:3/4;background:linear-gradient(160deg,var(--porcelain-deep),var(--sky-soft));
+  border:1px solid var(--line);display:flex;align-items:flex-end;justify-content:center;position:relative;overflow:hidden;border-radius:4px}
+.card .ph::before{content:"";position:absolute;top:22%;width:34%;aspect-ratio:1;border-radius:50%;background:rgba(18,56,79,.14)}
+.card .ph::after{content:"";position:absolute;bottom:0;width:62%;height:42%;border-radius:50% 50% 0 0;background:rgba(18,56,79,.14)}
+.card .ph span{position:absolute;bottom:12px;font-family:"Archivo",sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--marine-soft);z-index:2}
+
+
+/* yeni bolumler icin sol-hizali baslik (bosluk sorunu cozumu) */
+.sec-head.left{flex-direction:column;align-items:flex-start;gap:10px}
+.sec-head.left h2{font-size:clamp(28px,3.6vw,44px)}
+.sec-head.left .coord{order:-1}
+
+
+/* lab: 3 esit sutun, dogal 16:9, kirpma yok */
+.lab-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.lab-item{margin:0}
+.lab-item img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:4px;display:block}
+.lab-item figcaption{font-family:"Archivo",sans-serif;font-size:12px;letter-spacing:.06em;color:var(--marine-soft);margin-top:10px;text-align:left}
+@media(max-width:900px){.lab-grid{grid-template-columns:1fr}}
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hbar">
+    <a href="#" aria-label="Ora Clinic home">
+      <div class="wordmark">ORA<span>.</span></div>
+      <div class="wordsub">Clinic · Istanbul</div>
+    </a>
+    <nav class="main" aria-label="Primary">
+      <a href="#work">Disciplines</a>
+      <a href="#packages">Packages</a>
+      <a href="#results">Results</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#guide">Guide</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="hcta" href="#contact">Plan my visit</a>
+  </div>
+</header>
+
+<section class="hero">
+  <video class="hero-video" autoplay muted loop playsinline poster="assets/hero-istanbul-poster.jpg">
+    <source src="assets/hero-istanbul.mp4" type="video/mp4">
+  </video>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="coordline reveal">
+      <span class="coord">41.09° N · 28.79° E</span>
+      <span class="tick"></span>
+      <span class="coord dim">Istanbul, where continents meet</span>
+    </div>
+    <h1 class="reveal">Precision dentistry,<br><em>measured</em> to your smile.</h1>
+    <p class="sub reveal">Ora Clinic plans your new smile digitally, delivers it personally, and manages
+    everything in between: the airport pickup, the hotel, the interpreter at your side.
+    One team, one plan, one journey to Istanbul.</p>
+    <div class="hero-ctas reveal">
+      <a class="btn solid" href="#contact">Start on WhatsApp</a>
+      <a class="btn ghost" href="#journey">See how it works</a>
+    </div>
+    <div class="hero-meta reveal">
+      <div><b>Full journey care</b><span>Airport · hotel · interpreter</span></div>
+      <div><b>Digitally planned</b><span>Imaging before incision</span></div>
+      <div><b>Multilingual team</b><span>Write in your language</span></div>
+    </div>
+  </div>
+</section>
+
+<figure style="margin:0;position:relative;aspect-ratio:16/5;overflow:hidden">
+  <img src="assets/img/ora-gulus.jpg" alt="Sağlıklı, bakımlı bir gülüş" width="1600" height="900" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center 40%">
+</figure>
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-inner">
+    <span><i>·</i>Implants</span><span><i>·</i>Veneers</span><span><i>·</i>Smile Design</span>
+    <span><i>·</i>Orthodontics</span><span><i>·</i>Whitening</span><span><i>·</i>All on Four</span>
+    <span><i>·</i>Airport Pickup</span><span><i>·</i>Hotel Stay</span><span><i>·</i>Interpreter</span>
+    <span><i>·</i>Implants</span><span><i>·</i>Veneers</span><span><i>·</i>Smile Design</span>
+    <span><i>·</i>Orthodontics</span><span><i>·</i>Whitening</span><span><i>·</i>All on Four</span>
+    <span><i>·</i>Airport Pickup</span><span><i>·</i>Hotel Stay</span><span><i>·</i>Interpreter</span>
+  </div>
+</div>
+
+<section id="work">
+  <div class="wrap">
+    <figure class="reveal" style="margin:0 0 48px;position:relative;aspect-ratio:16/6;overflow:hidden;border-radius:3px">
+      <img src="assets/img/ora-klinik-ferah.jpg" alt="Ferah, aydınlık modern klinik odası" width="1600" height="900" loading="lazy" style="width:100%;height:100%;object-fit:cover">
+    </figure>
+    <div class="sec-head">
+      <h2 class="reveal">Eight disciplines.<br>One address.</h2>
+      <span class="coord dim">/ 01 · The Work</span>
+    </div>
+    <div class="disc-grid">
+      <a class="disc reveal" href="#"><span class="no">01</span><h3>Implantology</h3>
+        <p>From a single missing tooth to full arch restorations, planned on 3D imaging and placed with guided precision.</p>
+        <span class="go">Read more →</span></a>
+      <a class="disc reveal" href="#"><span class="no">02</span><h3>Aesthetic Dentistry</h3>
+        <p>Veneers, bonding and whitening, designed on screen and approved by you before treatment begins.</p>
+        <span class="go">Read more →</span></a>
+      <a class="disc reveal" href="#"><span class="no">03</span><h3>Crowns and Bridges</h3>
+        <p>Zirconia and ceramic restorations that bring strength and light together, matched to your natural shade.</p>
+        <span class="go">Read more →</span></a>
+      <a class="disc reveal" href="#"><span class="no">04</span><h3>Oral Surgery</h3>
+        <p>Extractions, impacted wisdom teeth and the bone procedures that prepare the ground for implants.</p>
+        <span class="go">Read more →</span></a>
+      <a class="disc reveal" href="#"><span class="no">05</span><h3>Orthodontics</h3>
+        <p>Fixed braces and clear aligners for adults and teenagers, for function first and beauty with it.</p>
+        <span class="go">Read more →</span></a>
+      <a class="disc reveal" href="#"><span class="no">06</span><h3>Endodontics</h3>
+        <p>Root canal therapy that saves the tooth you were told to lose, completed with modern comfort.</p>
+        <span class="go">Read more →</span></a>
+      <a class="disc reveal" href="#"><span class="no">07</span><h3>Periodontology</h3>
+        <p>Gum health first: the foundation every implant, crown and veneer stands on.</p>
+        <span class="go">Read more →</span></a>
+      <a class="disc reveal" href="#"><span class="no">08</span><h3>Jaw Joint and Pediatric Care</h3>
+        <p>TMJ assessment for adults, and a gentle first chapter of dental care for children.</p>
+        <span class="go">Read more →</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="journey">
+  <div class="wrap">
+    <figure class="reveal" style="margin:0 0 48px;position:relative;aspect-ratio:16/5;overflow:hidden;border-radius:3px">
+      <img src="assets/img/ora-tedavi.jpg" alt="Hekim elleri, muayene aletleriyle hassas çalışma" width="1600" height="900" loading="lazy" style="width:100%;height:100%;object-fit:cover">
+    </figure>
+    <div class="sec-head">
+      <h2 class="reveal">From your first message<br>to your final check.</h2>
+      <span class="coord">/ 02 · The Journey</span>
+    </div>
+    <div class="journey">
+      <div class="step reveal"><div class="dot">1</div><h3>Write to us</h3>
+        <p>Send a message on WhatsApp at any hour, in your own language. Share photos or an x-ray if you have one.</p></div>
+      <div class="step reveal"><div class="dot">2</div><h3>Get your plan</h3>
+        <p>Our dentists review your case and your coordinator walks you through the proposed route and the dates.</p></div>
+      <div class="step reveal"><div class="dot">3</div><h3>Fly to Istanbul</h3>
+        <p>We meet you at the airport. Your hotel and transfers are arranged; your interpreter stays with you at the clinic.</p></div>
+      <div class="step reveal"><div class="dot">4</div><h3>Smile, and stay in touch</h3>
+        <p>Treatment is completed to plan, and our team follows your healing after you fly home.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="package" class="band">
+  <div class="wrap"><figure class="reveal" style="margin:0 0 48px;position:relative;aspect-ratio:16/5;overflow:hidden;border-radius:3px">
+    <img src="assets/img/ora-otel.jpg" alt="Boğaz manzaralı ferah otel odası" width="1600" height="900" loading="lazy" style="width:100%;height:100%;object-fit:cover">
+  </figure></div>
+  <div class="wrap band-inner">
+    <div class="reveal">
+      <span class="coord">/ 03 · The Package</span>
+      <h2 style="margin-top:18px">Everything around<br>the chair, <em>handled.</em></h2>
+      <p style="margin-top:22px;color:var(--marine-soft);max-width:46ch">You come for the dentistry.
+      The logistics are ours: from the moment you land to the day you fly back, one coordinator
+      answers for everything.</p>
+    </div>
+    <ul class="reveal">
+      <li><b>A</b> Airport pickup and all clinic transfers, privately driven</li>
+      <li><b>B</b> Hotel stay arranged near the clinic</li>
+      <li><b>C</b> Interpreter at your side through every appointment</li>
+      <li><b>D</b> Digital treatment plan agreed before you travel</li>
+      <li><b>E</b> Aftercare contact once you are back home</li>
+    </ul>
+  </div>
+</section>
+
+<section id="team">
+  <div class="wrap">
+    <figure class="reveal" style="margin:0 0 48px;position:relative;aspect-ratio:16/6;overflow:hidden;border-radius:3px">
+      <img src="assets/img/ora-implant.jpg" alt="Diş implantı modeli, ferah klinik zemininde" width="1600" height="900" loading="lazy" style="width:100%;height:100%;object-fit:cover">
+    </figure>
+    <div class="sec-head">
+      <h2 class="reveal">The people behind<br>the precision.</h2>
+      <span class="coord dim">/ 04 · The Team</span>
+    </div>
+    <div class="cards">
+      <div class="card reveal"><img src="assets/img/ora-hekim-1.jpg" alt="Ora hekim" width="1086" height="1448" loading="lazy" style="width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:4px">
+        <div class="cb"><h3>[Dr. Ad Soyad]</h3><p>[Uzmanlık · Ora ile teyit edilecek]</p></div></div>
+      <div class="card reveal"><img src="assets/img/ora-hekim-2.jpg" alt="Ora hekim" width="1086" height="1448" loading="lazy" style="width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:4px">
+        <div class="cb"><h3>[Dr. Ad Soyad]</h3><p>[Uzmanlık · Ora ile teyit edilecek]</p></div></div>
+      <div class="card reveal"><img src="assets/img/ora-hekim-3.jpg" alt="Ora hekim" width="1086" height="1448" loading="lazy" style="width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:4px">
+        <div class="cb"><h3>[Dr. Ad Soyad]</h3><p>[Uzmanlık · Ora ile teyit edilecek]</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <figure class="reveal" style="margin:0 0 48px;position:relative;aspect-ratio:16/4;overflow:hidden;border-radius:3px">
+      <img src="assets/img/ora-aligner.jpg" alt="Şeffaf ortodontik plak" width="1600" height="900" loading="lazy" style="width:100%;height:100%;object-fit:cover">
+    </figure>
+    <div class="sec-head">
+      <h2 class="reveal">Before you ask.</h2>
+      <span class="coord">/ 05 · FAQ</span>
+    </div>
+    <details class="reveal"><summary>How many days will I need in Istanbul?</summary>
+      <p>It depends on the treatment. Veneers and crowns are usually completed within a single visit of several days; implants are typically planned over two visits with a healing period in between. Your personal schedule is confirmed after your case is reviewed.</p></details>
+    <details class="reveal"><summary>Can I get a plan before I travel?</summary>
+      <p>Yes. Share your photos or x-rays on WhatsApp and our dentists prepare a proposed treatment route before you book any flight. The final plan is confirmed at your clinical examination in Istanbul, as Turkish health regulation requires.</p></details>
+    <details class="reveal"><summary>Will language be a problem?</summary>
+      <p>No. Our coordinators answer in your language and an interpreter accompanies you at the clinic, so nothing is lost between you and your dentist.</p></details>
+    <details class="reveal"><summary>How do I get a treatment plan and estimate?</summary>
+      <p>Send your photos or recent x-rays on WhatsApp. Our dentists review them and prepare a proposed treatment route. A precise plan and estimate are confirmed at your in-person clinical examination in Istanbul.</p></details>
+    <details class="reveal"><summary>What is included in a treatment package?</summary>
+      <p>Packages are designed to cover the full journey: treatment, airport transfers, hotel coordination, and an interpreter by your side. Exact inclusions are confirmed with the clinic before you travel.</p></details>
+    <details class="reveal"><summary>Which implant and material brands do you use?</summary>
+      <p>Ora works only with globally certified dental brands. The specific brand used in your treatment is selected by your dentist based on your case and discussed with you beforehand.</p></details>
+    <details class="reveal"><summary>Is the clinic officially licensed and accredited?</summary>
+      <p>Ora operates as a licensed clinic and works within Turkish health tourism regulation. Certifications and official approvals are available for review.</p></details>
+    <details class="reveal"><summary>What happens if I need a follow-up after I return home?</summary>
+      <p>Your care does not end when you fly back. Our team stays in touch for aftercare, and follow-up is coordinated remotely in your language.</p></details>
+    <details class="reveal"><summary>How do I arrange travel, hotel, and pickup?</summary>
+      <p>Once your treatment dates are set, your coordinator arranges airport pickup and helps organize your hotel stay, so you arrive with everything in place.</p></details>
+    <details class="reveal"><summary>How do I start?</summary>
+      <p>Message us on WhatsApp in your own language. A coordinator replies, reviews your case, and your journey begins with a single message.</p></details>
+    <p style="margin-top:30px"><a class="btn ghost" href="#">All questions →</a></p>
+  </div>
+</section>
+
+
+<!-- ==== URUN MARKALARI ==== -->
+<section id="brands">
+  <div class="wrap">
+    <div class="sec-head left"><p class="coord dim reveal">/ Trusted materials</p>
+      <h2 class="reveal" style="font-size:clamp(28px,3.4vw,40px)">The materials behind<br>every restoration.</h2></div>
+    <p class="reveal" style="max-width:56ch;color:var(--marine-soft);font-size:15px;margin-top:8px">Ora works only with globally certified dental brands. Brand logos to be added from official sources.</p>
+    <div class="brand-row reveal">
+      <div class="brand-chip"><img src="assets/img/logo-nobel.png" alt="Nobel Biocare" loading="lazy"></div>
+      <div class="brand-chip"><img src="assets/img/logo-ivoclar.png" alt="Ivoclar" loading="lazy"></div>
+      <div class="brand-chip"><img src="assets/img/logo-vita.png" alt="VITA" loading="lazy"></div>
+      <div class="brand-chip"><img src="assets/img/logo-gc.png" alt="GC" loading="lazy"></div>
+      <div class="brand-chip"><img src="assets/img/logo-tokuyama.png" alt="Tokuyama Dental" loading="lazy"></div>
+      <div class="brand-chip"><img src="assets/img/logo-invisalign.png" alt="Invisalign" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==== LABORATUVAR & CIHAZ ==== -->
+<section id="lab" style="padding:0 0 96px;background:var(--porcelain)">
+  <div class="wrap">
+    <div class="sec-head left"><p class="coord dim reveal">/ In-house lab and technology</p>
+      <h2 class="reveal" style="font-size:clamp(28px,3.4vw,40px)">Our own lab.<br>Our own standards.</h2></div>
+    <div class="lab-grid reveal">
+      <figure class="lab-item"><img src="assets/img/ora-lab.jpg" alt="Modern diş laboratuvarı" width="1600" height="900" loading="lazy"><figcaption>Kendi laboratuvarımız</figcaption></figure>
+      <figure class="lab-item"><img src="assets/img/ora-cihaz-cbct.jpg" alt="CBCT görüntüleme cihazı" width="1600" height="900" loading="lazy"><figcaption>3B görüntüleme (CBCT)</figcaption></figure>
+      <figure class="lab-item"><img src="assets/img/ora-cihaz-cadcam.jpg" alt="CAD/CAM freze makinesi" width="1600" height="900" loading="lazy"><figcaption>CAD/CAM üretim</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ==== KAMPANYALAR / PAKETLER ==== -->
+<section id="packages">
+  <div class="wrap">
+    <div class="sec-head left"><p class="coord dim reveal">/ Treatment packages</p>
+      <h2 class="reveal">One price.<br>Everything included.</h2></div>
+    <div class="pkg-grid">
+      <div class="pkg-card reveal">
+        <div class="pkg-tag">Smile makeover</div>
+        <h3>The Veneer Journey</h3>
+        <p class="pkg-note">Full smile design with premium veneers.</p>
+        <ul><li>Digital smile design</li><li>Premium veneers</li><li>Airport pickup and hotel</li><li>Interpreter throughout</li></ul>
+        <p class="pkg-price">[Fiyat / kapsam Ora ile netleşecek]</p>
+      </div>
+      <div class="pkg-card featured reveal">
+        <div class="pkg-tag">Most chosen</div>
+        <h3>The Implant Journey</h3>
+        <p class="pkg-note">Complete implant treatment, planned digitally.</p>
+        <ul><li>3D implant planning</li><li>Premium implant brand</li><li>Crown and abutment</li><li>Full stay coordination</li></ul>
+        <p class="pkg-price">[Fiyat / kapsam Ora ile netleşecek]</p>
+      </div>
+      <div class="pkg-card reveal">
+        <div class="pkg-tag">Straighten</div>
+        <h3>The Aligner Journey</h3>
+        <p class="pkg-note">Clear aligner treatment with remote follow-up.</p>
+        <ul><li>Full aligner set</li><li>Remote monitoring</li><li>Initial fitting visit</li><li>Retainers included</li></ul>
+        <p class="pkg-price">[Fiyat / kapsam Ora ile netleşecek]</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==== SERTIFIKALAR & ONAYLAR ==== -->
+<section id="trust">
+  <div class="wrap">
+    <div class="sec-head left"><p class="coord dim reveal">/ Certifications and approvals</p>
+      <h2 class="reveal">Accredited, approved,<br>accountable.</h2></div>
+    <div class="cert-row">
+      <div class="cert reveal"><div class="cert-ic">✓</div><b>[Sağlık Turizmi Yetki Belgesi]</b><span>T.C. Sağlık Bakanlığı</span></div>
+      <div class="cert reveal"><div class="cert-ic">✓</div><b>[Ruhsat / İşletme Belgesi]</b><span>Resmi klinik ruhsatı</span></div>
+      <div class="cert reveal"><div class="cert-ic">✓</div><b>[ISO / Kalite Belgesi]</b><span>Uluslararası standart</span></div>
+      <div class="cert reveal"><div class="cert-ic">✓</div><b>[Üyelik / Dernek]</b><span>Meslek kuruluşu</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==== ONCESI / SONRASI ==== -->
+<section id="results">
+  <div class="wrap">
+    <div class="sec-head left"><p class="coord dim reveal">/ Before and after</p>
+      <h2 class="reveal">Real journeys.<br>Real results.</h2></div>
+    <p class="reveal" style="max-width:60ch;color:var(--marine-soft);font-size:14px;margin-top:8px">Case photos to be supplied by Ora Clinic with documented patient consent.</p>
+    <div class="ba-grid">
+      <div class="ba-card reveal"><img src="assets/img/ora-ba-veneer.jpg" alt="Veneer · temsili" width="1600" height="900" loading="lazy" style="width:100%;height:auto;display:block;aspect-ratio:16/9;object-fit:contain;background:#fff"><div class="ba-cap"><b>Veneer · temsili</b>Gerçek vaka görselleri Ora tarafından, hasta onayıyla eklenecek.</div></div>
+      <div class="ba-card reveal"><img src="assets/img/ora-ba-implant.jpg" alt="Implant · temsili" width="1600" height="900" loading="lazy" style="width:100%;height:auto;display:block;aspect-ratio:16/9;object-fit:contain;background:#fff"><div class="ba-cap"><b>Implant · temsili</b>Gerçek vaka görselleri Ora tarafından, hasta onayıyla eklenecek.</div></div>
+      <div class="ba-card reveal"><img src="assets/img/ora-ba-aligner.jpg" alt="Beyazlatma · temsili" width="1600" height="900" loading="lazy" style="width:100%;height:auto;display:block;aspect-ratio:16/9;object-fit:contain;background:#fff"><div class="ba-cap"><b>Beyazlatma · temsili</b>Gerçek vaka görselleri Ora tarafından, hasta onayıyla eklenecek.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==== HASTA YORUMLARI ==== -->
+<section id="reviews">
+  <div class="wrap">
+    <div class="sec-head left"><p class="coord dim reveal">/ Patient reviews</p>
+      <h2 class="reveal">What our patients say.</h2></div>
+    <div class="rev-head reveal">
+      <div class="rev-score"><span class="num">[4.9]</span><span class="stars">★★★★★</span><span class="src">Google · [xxx] reviews</span></div>
+      <div class="rev-score"><span class="num">[4.8]</span><span class="stars">★★★★★</span><span class="src">Trustpilot · [xxx] reviews</span></div>
+    </div>
+    <div class="rev-grid">
+      <div class="rev-card reveal"><div class="stars">★★★★★</div><p>[Gerçek hasta yorumu · Google/Trustpilot bağlantısından çekilecek]</p><div class="who">[İsim] · [Ülke]</div></div>
+      <div class="rev-card reveal"><div class="stars">★★★★★</div><p>[Gerçek hasta yorumu · Google/Trustpilot bağlantısından çekilecek]</p><div class="who">[İsim] · [Ülke]</div></div>
+      <div class="rev-card reveal"><div class="stars">★★★★★</div><p>[Gerçek hasta yorumu · Google/Trustpilot bağlantısından çekilecek]</p><div class="who">[İsim] · [Ülke]</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==== SAGLIK REHBERI ==== -->
+<section id="guide">
+  <div class="wrap">
+    <div class="sec-head left"><p class="coord dim reveal">/ Health guide</p>
+      <h2 class="reveal">Know before<br>you go.</h2></div>
+    <div class="guide-grid">
+      <div class="guide-card reveal"><img src="assets/img/ora-rehber-implant.jpg" alt="İmplant rehberi" width="1600" height="900" loading="lazy" style="width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-bottom:1px solid var(--line)"><div class="g-body"><div class="g-tag">Implants</div><h3>How dental implants work and who they suit</h3><p>A clear overview of the implant process, healing, and what to expect.</p><span class="g-link">Read guide →</span></div></div>
+      <div class="guide-card reveal"><img src="assets/img/ora-rehber-veneer.jpg" alt="Veneer rehberi" width="1600" height="900" loading="lazy" style="width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-bottom:1px solid var(--line)"><div class="g-body"><div class="g-tag">Veneers</div><h3>Veneers vs crowns: choosing the right option</h3><p>The differences, durability, and how a smile design is planned.</p><span class="g-link">Read guide →</span></div></div>
+      <div class="guide-card reveal"><img src="assets/img/ora-rehber-seyahat.jpg" alt="Seyahat rehberi" width="1600" height="900" loading="lazy" style="width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-bottom:1px solid var(--line)"><div class="g-body"><div class="g-tag">Travel</div><h3>Planning dental treatment in Istanbul</h3><p>How many days to stay, recovery, and travel logistics explained.</p><span class="g-link">Read guide →</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <span class="coord" style="color:var(--copper-soft)">41.09° N · 28.79° E · Istanbul</span>
+    <h2 class="reveal" style="margin-top:22px">Your smile has <em>coordinates.</em></h2>
+    <p class="reveal">Write to us on WhatsApp at any hour. A coordinator who speaks your
+    language replies, and your journey begins with a single message.</p>
+    <a class="btn solid reveal" href="#">Start the conversation</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap fgrid">
+    <div>Ora Clinic · Süleyman Demirel Bulvarı No: 6/1B, Başakşehir, Istanbul</div>
+    <div><a href="tel:+905444111202">+90 544 411 12 02</a><!-- TEYIT: birden fazla hat dolasimda (411 17 07, 549 51 86, 535 040 77 95); resmi tek hat klinikten dogrulanacak --></div>
+    <div style="display:flex;gap:22px">
+      <a href="#">Privacy</a><a href="#">Terms</a><a href="#">Disclaimer</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.documentElement.classList.add('js-on');
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{root:null,rootMargin:"0px 0px 9000px 0px",threshold:0});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
