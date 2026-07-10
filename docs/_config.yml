@@ -1,3 +1,5 @@
-# Bilerek minimal: baseurl set edilmiyor.
-# Tum asset yollari gorelidir (assets/img/...), bu yuzden
-# GitHub Pages'in /ora-web/ alt-yolunda baseurl'e ihtiyac yok.
+# FAZ 3.1 ADIM 1: izole baseurl testi.
+# Govde icindeki mevcut goreli asset yollari (assets/img/...) bu adimda
+# HENUZ degistirilmedi; sadece baseurl eklenip ana sayfanin bozulmadigi
+# kanitlanacak. include'lar relative_url'e ADIM 2'de gecirilecek.
+baseurl: "/ora-web"
