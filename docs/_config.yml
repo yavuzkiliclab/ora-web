@@ -1,0 +1,3 @@
+# Bilerek minimal: baseurl set edilmiyor.
+# Tum asset yollari gorelidir (assets/img/...), bu yuzden
+# GitHub Pages'in /ora-web/ alt-yolunda baseurl'e ihtiyac yok.
