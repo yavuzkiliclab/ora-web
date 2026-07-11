@@ -35,3 +35,45 @@
 - WhatsApp/telefon numarası (wa.me placeholder)
 - oradental.com domaini (Aytaşdent Ltd. adına tescil), bağlanınca _config.yml baseurl/url güncellenir
 - github.io STAGING: numara + domain gelene kadar paylaşılmıyor
+
+## Ora INTL - Oturum Durumu 2 (2026-07-11)
+
+### Bu oturumda TAMAMLANAN (hepsi canlıda, staging)
+
+**FAQ ayrı sayfası + ana sayfa trim** (commit'ler faq + trim)
+- Yeni docs/faq.html (kök seviye, layout:base, legal-doc CSS, <details class="reveal"> accordion, 9 soru; orijinal 10'dan 2+4 birleştirildi)
+- Ana sayfa FAQ 10'dan 4 öne çıkan soruya indirildi (days/language/package/start), diğer 6 sed satır-bazlı silindi (yedek /tmp'ye)
+- "All questions ->" faq.html'e relative_url ile bağlandı
+- Korunan işaretler doğrulandı: V2-BACKFILL 4, wa.me 2, ST-2800 1
+
+**Title/SEO dinamikleştirme** (commit c76b470)
+- head.html <title> + og:title + twitter:title dinamik: {{ page.title | default: "ana sayfa basligi" }}
+- DIKKAT tirnak: <title> cift tirnak (dis tirnak yok), og/twitter content='...' TEK tirnak (content cift tirnakla sarili, cakisma onlendi)
+- faq + privacy + terms + disclaimer front-matter'ina title eklendi
+- Ana sayfa DEGISMEDI (title'i yok, default'a dusuyor), canlida dogrulandi
+
+**8 disiplin tedavi sayfasi** (commit f7fe65c + implant ilk hali 8f30f62)
+- docs/treatments/ altinda 8 sayfa: implants (genisletilmis), aesthetic-dentistry, crowns-and-bridges, oral-surgery, orthodontics, endodontics, periodontology, jaw-joint-and-pediatric
+- HEPSI DRAFT (amber legal-flag + "awaiting physician review" + [Physician review TO CONFIRM]), Ingilizce, legal-doc CSS
+- Her sayfa: giris + kime uygun + surec (process-steps numarali daire, head.html'de counter(step) CSS) + ne beklemeli + Recovery/aftercare + Common questions (<details> accordion 4 soru) + Related treatments (kardes sayfalara relative_url ic link) + neden Ora + CTA
+- jaw/pediatric farkli yapi (TMJ + pediatric ayri bolum, process-steps YOK)
+- Guvenli tibbi dil: spesifik oran/garanti YOK, "kisiye/hekime gore degisir", genel bakim (ilac/doz yok); endo+oral surgery en hassas
+- Ana sayfa: 8 #work karti (01-08) + 2 #guide karti (implant, Veneers->aesthetic) relative_url ile bagli
+- Ic link agi 404 vermiyor (8 birlikte push edildi), 8 sayfa 200 + kendi title, accordion/process-steps/DRAFT canli dogrulandi
+
+### OGRENILEN teknik notlar (bu oturum)
+- Uzun icerik CC->Claude aktarim katmaninda BOZUK gorunebilir (implant guncellemede yasandi), ama CC disk-ustu grep gercegi soyler. Cozum: scratch dosyaya yaz -> grep kanitla -> gercek konuma cp -> re-dogrula.
+- Yapisal denge (details=/details=summary, section=1/1, ol=/ol=li) kaba kelime-regex'ten daha guvenilir kirik-HTML gostergesi. Kaba regex false positive uretir.
+- 8 sayfayi BIRLIKTE push et (ic linkler ancak hedef sayfalar var olunca 404 vermez).
+- Legacy deploy tekrar hatirlatildi: gh run / Actions ALAKASIZ, deploy dogrulama dogrudan canlidan (curl 200 poll + incognito).
+
+### KALAN is
+- Klinik/Dr. Mahmut 8 disiplin sayfasi TOPLU FIZIKSEL ONAY bekliyor. Onay sonrasi DRAFT bandi + [Physician review TO CONFIRM] kaldirma ayri tur.
+- Klinik-spesifik teyit gereken iddialar: "in-house laboratory" (crowns), "3D imaging" (oral surgery/implant)
+
+### ACIK BLOKORLER (degismedi, gercek yayin oncesi)
+- Legal sayfalardaki [TO CONFIRM] + avukat onayi
+- WhatsApp/telefon numarasi (wa.me placeholder)
+- oradental.com domaini (Aytasdent Ltd. adina), baglaninca _config.yml + standalone og:url'ler duzeltilir
+- Ana sayfa [TO CONFIRM]: Team "[Dr. Ad Soyad]", certs "[Ruhsat/Isletme Belgesi]" vb.
+- github.io STAGING: numara + domain gelene kadar paylasilmiyor
