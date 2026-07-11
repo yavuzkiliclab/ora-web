@@ -77,3 +77,22 @@
 - oradental.com domaini (Aytasdent Ltd. adina), baglaninca _config.yml + standalone og:url'ler duzeltilir
 - Ana sayfa [TO CONFIRM]: Team "[Dr. Ad Soyad]", certs "[Ruhsat/Isletme Belgesi]" vb.
 - github.io STAGING: numara + domain gelene kadar paylasilmiyor
+
+### Sertifika bölümü gercek belgelerle yeniden tasarlandi (2026-07-11, commit f85613d + rotasyon/galeri fix)
+
+- Reis 3 resmi belge PDF yukledi (Ruhsat.pdf, marka.pdf, saglik turizmi belgesi). Claude web'e optimize etti (JPG 1000px), docs/assets/img/'e kondu.
+- NIHAI TASARIM: ust metin kartlari (cert-row) TAMAMEN SILINDI. Sadece 3 belge gorseli yan yana galeri (cert-docs, figure/a/img/figcaption).
+- SIRALAMA: Clinic License (sol) / Health Tourism Authorization ST-2800 (ORTA) / Registered Trademark (sag).
+- Her belge altinda baslik+numara:
+  Clinic License · Istanbul Provincial Health Directorate · No 1577
+  Health Tourism Authorization · Republic of Turkiye · Ministry of Health · No ST-2800
+  Registered Trademark · Turkish Patent Institute · No 2022 059598 (classes 39 & 44)
+- Belgeler target=_blank ile tiklaninca tam boyut acilir.
+- TEKNIK: yatay turizm belgesi + dikey ruhsat/marka farki icin .cert-doc>a aspect-ratio:4/3 + object-fit:contain (hepsi ayni kutuda ortali hizali).
+- ROTASYON: saglik turizmi PDF render'i yan (90 derece) cikti. Dogru yon OCR ile bulundu (dogru yonde 6/6 anahtar kelime okunur). v1 (yan) git rm edildi, v3 (duz) kullaniliyor.
+- REIS KARARI: belge tam taramalarini siteye koymak istedi. Claude riski belirtti (hassas resmi evrak herkese acik, Dr. Mahmut'un bilgisi olan belgeler, saglik turizminde norm degil). Reis riski kabul etti.
+- SONUC: ana sayfa sertifika [TO CONFIRM] blokoru KAPANDI (artik gercek 3 belge + bilgi).
+
+### KALAN is (guncelleme)
+- Dr. Mahmut'a belge gorsellerinin siteye acik konuldugunu BILDIR (resmi evrak, haberi olsun).
+- (Onceki kalan isler ayni: 8 disiplin sayfasi hekim onayi, legal [TO CONFIRM] + avukat, wa.me numarasi, oradental.com domaini, Team placeholder'lari)
