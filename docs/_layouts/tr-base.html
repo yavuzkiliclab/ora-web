@@ -1,0 +1,26 @@
+<!--
+  © 2026 Yıldırım Yavuz Kılıç. Tüm hakları saklıdır.
+  Ora Clinic Yurtiçi (TR) · Ana Sayfa · taslak v0.1
+  Tasarım ve geliştirme: Y. Yavuz Kılıç
+  NOT: [TEYIT] etiketli her veri klinikten dogrulanmadan yayina cikmaz.
+-->
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+{% include tr-head.html %}
+</head>
+<body>
+
+{% include tr-header.html %}
+
+{{ content }}
+
+{% include tr-footer.html %}
+
+<script>
+document.documentElement.classList.add('js-on');
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{root:null,rootMargin:"0px 0px 9000px 0px",threshold:0});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
